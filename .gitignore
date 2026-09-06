@@ -1,0 +1,17 @@
+node_modules
+.next
+out
+.env
+.env.local
+.netlify
+.DS_Store
+npm-debug.log*
+
+# Google Drive downloader secrets
+scripts/credentials.json
+scripts/token.json
+__pycache__/
+
+# Unprocessed camp photos (~72MB of phone originals, incl. HEIC).
+# The web-optimised versions in public/images are what ship.
+raw/

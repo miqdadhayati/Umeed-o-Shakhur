@@ -1,0 +1,23 @@
+.cardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.75rem;
+}
+
+@media (max-width: 900px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Warm tint so the photo grid reads as its own chapter between the
+   white programs section and the mist-toned stories section. */
+.gallerySection {
+  background: linear-gradient(180deg, var(--paper) 0%, #f4efe4 55%, var(--paper) 100%);
+}

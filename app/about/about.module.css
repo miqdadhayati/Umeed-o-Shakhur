@@ -1,0 +1,168 @@
+.story {
+  display: grid;
+  grid-template-columns: 1.7fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+/* Caps the reading measure when the governance card is hidden and this column
+   would otherwise stretch the full container width (~125 characters a line).
+   Inside the two-column grid the track is already narrower, so this is a no-op
+   there. */
+.narrative {
+  max-width: 68ch;
+}
+
+.narrative h2 {
+  font-size: var(--step-2);
+  margin-bottom: 1.2rem;
+}
+
+.narrative p {
+  color: var(--muted);
+  margin-bottom: 1.1rem;
+  line-height: 1.7;
+}
+
+.storyPhoto {
+  margin: 2rem 0 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.regCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 96px;
+}
+
+.regCard h3 {
+  font-size: var(--step-1);
+  margin-bottom: 1.2rem;
+}
+
+.regCard dl {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 0;
+}
+
+.regCard dt {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--marigold-600);
+}
+
+.regCard dd {
+  margin: 0.25rem 0 0;
+  font-size: var(--step--1);
+  color: var(--ink);
+  line-height: 1.5;
+}
+
+.frameworkTitle {
+  margin-top: 0.8rem;
+  font-size: var(--step-2);
+  margin-bottom: 2rem;
+}
+
+.frameworkGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.frameworkCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--marigold);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+}
+
+.frameworkLabel {
+  display: inline-block;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: var(--step-1);
+  color: var(--indigo);
+  margin-bottom: 0.75rem;
+}
+
+.frameworkCard p {
+  color: var(--muted);
+  line-height: 1.65;
+  font-size: var(--step--1);
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.5rem;
+}
+
+.teamCard {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.6rem;
+  text-align: center;
+}
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: var(--indigo-100);
+  color: var(--indigo-700);
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.teamCard h3 {
+  font-size: var(--step-0);
+}
+
+.teamCard p {
+  margin-top: 0.3rem;
+  color: var(--muted);
+  font-size: var(--step--1);
+}
+
+@media (max-width: 900px) {
+  .story {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .regCard {
+    position: static;
+  }
+
+  .frameworkGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .teamGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+}

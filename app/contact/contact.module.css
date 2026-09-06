@@ -1,0 +1,97 @@
+.layout {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 3rem;
+  align-items: start;
+}
+
+@media (max-width: 860px) {
+  .layout {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+}
+
+.formTitle {
+  font-size: var(--step-2);
+  margin-bottom: 1.5rem;
+}
+
+.info {
+  display: grid;
+  gap: 2rem;
+}
+
+.block {
+  border: 1px solid var(--line);
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+}
+
+.blockTitle {
+  font-size: var(--step-1);
+  margin-bottom: 1rem;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 1rem;
+}
+
+.list li {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.label {
+  font-size: var(--step--1);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+}
+
+.list a {
+  font-weight: 600;
+  color: var(--indigo);
+}
+
+.social {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.social a {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  font-weight: 600;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.social a:hover {
+  border-color: var(--indigo);
+  color: var(--indigo);
+}
+
+.volunteer {
+  max-width: 720px;
+}
+
+.volunteerTitle {
+  font-size: var(--step-2);
+}
+
+.volunteerBody {
+  color: var(--muted);
+  font-size: var(--step-1);
+  max-width: 60ch;
+}

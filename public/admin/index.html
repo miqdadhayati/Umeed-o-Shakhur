@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>Content Manager — Umeed o Shakhur</title>
+  </head>
+  <body>
+    <!--
+      Sveltia CMS is a maintained, drop-in replacement for Decap CMS. It reads
+      the same config.yml and authenticates with GitHub OAuth directly, so it
+      does NOT depend on Netlify Identity or Git Gateway (both deprecated by
+      Netlify). Editors log in with their GitHub account and publishing commits
+      content to the repository, which triggers a fresh Netlify build.
+    -->
+    <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+
+    <!--
+      To use the original Decap CMS instead, comment out the line above and
+      uncomment the line below. The config.yml works unchanged. Note that with
+      Decap you must pair it with a GitHub OAuth provider (e.g. Netlify's OAuth
+      provider, or a small serverless OAuth function) since Git Gateway is
+      deprecated.
+
+      <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+    -->
+  </body>
+</html>

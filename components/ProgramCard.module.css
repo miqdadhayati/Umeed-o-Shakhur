@@ -1,0 +1,82 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow);
+}
+
+.media {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: var(--mist);
+}
+
+.body {
+  padding: 1.4rem 1.4rem 1.6rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  flex: 1;
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--indigo);
+}
+
+.status {
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+
+.statusOngoing {
+  background: rgba(31, 138, 110, 0.12);
+  color: var(--success);
+}
+
+.statusUpcoming {
+  background: rgba(244, 169, 60, 0.18);
+  color: var(--marigold-600);
+}
+
+.statusDone {
+  background: var(--indigo-100);
+  color: var(--indigo-700);
+}
+
+.title {
+  font-size: var(--step-1);
+}
+
+.summary {
+  color: var(--muted);
+  font-size: var(--step--1);
+  line-height: 1.6;
+}
+
+.location {
+  margin-top: auto;
+  font-size: 0.78rem;
+  color: var(--muted);
+}

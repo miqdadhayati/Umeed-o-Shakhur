@@ -1,0 +1,72 @@
+/* A 4-column bed. The feature photo claims a 2x2 block in the top-left and
+   the remaining photos flow around it, which gives the grid a focal point
+   without needing per-photo positioning. */
+
+.grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-auto-rows: clamp(9rem, 15vw, 13rem);
+  gap: 1rem;
+}
+
+.item {
+  position: relative;
+  margin: 0;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--mist);
+  box-shadow: var(--shadow-sm);
+}
+
+.item img {
+  transition: transform 0.6s cubic-bezier(0.2, 0.7, 0.3, 1);
+}
+
+.item:hover img {
+  transform: scale(1.045);
+}
+
+/* A soft inner edge keeps light photos from bleeding into the paper
+   background at the rounded corners. */
+.item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 1px rgba(22, 36, 58, 0.08);
+  pointer-events: none;
+}
+
+.feature {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: clamp(8rem, 20vw, 11rem);
+  }
+}
+
+@media (max-width: 620px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: clamp(8.5rem, 42vw, 11rem);
+    gap: 0.75rem;
+  }
+
+  .feature {
+    /* Keep both spans: full width at one row deep would letterbox the
+       feature to roughly 2.6:1 and crop the subject out of it. */
+    grid-column: span 2;
+    grid-row: span 2;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .item:hover img {
+    transform: none;
+  }
+}

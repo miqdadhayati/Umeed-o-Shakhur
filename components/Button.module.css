@@ -1,0 +1,70 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.78rem 1.5rem;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: var(--step-0);
+  line-height: 1;
+  border: 2px solid transparent;
+  transition: transform 0.18s ease, background 0.18s ease, color 0.18s ease,
+    border-color 0.18s ease;
+  text-decoration: none;
+}
+
+.button:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+}
+
+.primary {
+  background: var(--marigold);
+  color: var(--ink);
+  border-color: var(--marigold);
+}
+
+.primary:hover {
+  background: var(--marigold-600);
+  border-color: var(--marigold-600);
+}
+
+.secondary {
+  background: var(--indigo);
+  color: #fff;
+  border-color: var(--indigo);
+}
+
+.secondary:hover {
+  background: var(--indigo-700);
+  border-color: var(--indigo-700);
+}
+
+.ghost {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line);
+}
+
+.ghost:hover {
+  border-color: var(--indigo);
+  color: var(--indigo);
+}
+
+/* On a photo or a dark band, outline styles need to invert. */
+.secondary.onDark,
+.ghost.onDark {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(2px);
+}
+
+.secondary.onDark:hover,
+.ghost.onDark:hover {
+  background: #fff;
+  color: var(--ink);
+  border-color: #fff;
+}

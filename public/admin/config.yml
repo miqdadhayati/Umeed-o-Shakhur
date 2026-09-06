@@ -1,0 +1,69 @@
+# TODO before /admin will work: set `repo` below to the real GitHub
+# repository (owner/name), and configure GitHub OAuth in Netlify
+# (Site settings -> Access & security -> OAuth -> Install provider).
+# Until then this panel loads but cannot sign in.
+backend:
+  name: github
+  repo: your-org/umeed-o-shakhur
+  branch: main
+
+media_folder: "public/images/uploads"
+public_folder: "/images/uploads"
+
+collections:
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - name: "home"
+        label: "Home Page"
+        file: "content/settings/home.json"
+        format: "json"
+        fields:
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Lede", name: "lede", widget: "text" }
+          - label: "Impact Metrics"
+            name: "impact"
+            widget: "list"
+            fields:
+              - { label: "Value", name: "value", widget: "string", hint: "Example: 4,200+" }
+              - { label: "Label", name: "label", widget: "string" }
+
+  - name: "programs"
+    label: "Programs"
+    label_singular: "Program"
+    folder: "content/programs"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Category", name: "category", widget: "string" }
+      - label: "Status"
+        name: "status"
+        widget: "select"
+        options: ["Ongoing", "Upcoming", "Completed"]
+        default: "Ongoing"
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Location", name: "location", widget: "string" }
+      - { label: "Cover Image", name: "image", widget: "image", required: false }
+      - { label: "Display Order", name: "order", widget: "number", default: 99, value_type: "int" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  - name: "blog"
+    label: "Stories"
+    label_singular: "Story"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Category", name: "category", widget: "string", required: false }
+      - { label: "Author", name: "author", widget: "string", required: false }
+      - { label: "Excerpt", name: "excerpt", widget: "text" }
+      - { label: "Cover Image", name: "cover", widget: "image", required: false }
+      - { label: "Draft", name: "draft", widget: "boolean", default: false }
+      - { label: "Body", name: "body", widget: "markdown" }

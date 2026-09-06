@@ -1,0 +1,146 @@
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--mist) 0%, var(--paper) 100%);
+}
+
+/* ---- Photographic hero ---------------------------------------------------
+   The scrim is what makes white text legible over an unpredictable photo.
+   It is deliberately heavier on the left, where the copy sits, and fades to
+   near-clear on the right so the group in the frame stays visible.
+   -------------------------------------------------------------------------- */
+
+.hasPhoto {
+  background: var(--ink);
+}
+
+.media {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(
+      100deg,
+      rgba(18, 28, 48, 0.94) 0%,
+      rgba(18, 28, 48, 0.82) 34%,
+      rgba(18, 28, 48, 0.52) 62%,
+      rgba(18, 28, 48, 0.42) 100%
+    ),
+    linear-gradient(180deg, rgba(18, 28, 48, 0.5) 0%, transparent 28%),
+    linear-gradient(0deg, rgba(251, 248, 242, 0.22) 0%, transparent 22%);
+}
+
+/* Decorative sunrise, used only when there is no photo behind the hero. */
+.arc {
+  position: absolute;
+  top: -42%;
+  right: -8%;
+  width: min(720px, 80vw);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 60%,
+    rgba(244, 169, 60, 0.55) 0%,
+    rgba(244, 169, 60, 0.12) 42%,
+    rgba(46, 58, 140, 0.16) 70%,
+    transparent 78%
+  );
+  filter: blur(2px);
+  z-index: 0;
+}
+
+.inner {
+  position: relative;
+  z-index: 1;
+  padding-block: clamp(3.5rem, 2rem + 8vw, 7rem);
+  max-width: 880px;
+}
+
+.hasPhoto .inner {
+  min-height: clamp(30rem, 74vh, 46rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-block: clamp(4.5rem, 3rem + 9vw, 8rem);
+}
+
+.heading {
+  margin-top: 1.1rem;
+  font-size: var(--step-4);
+  font-weight: 700;
+  max-width: 18ch;
+}
+
+.lede {
+  margin-top: 1.4rem;
+  font-size: var(--step-1);
+  color: var(--muted);
+  max-width: 52ch;
+  line-height: 1.55;
+}
+
+.cta {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.note {
+  margin-top: 1.75rem;
+  font-size: var(--step--1);
+  color: var(--muted);
+  max-width: 46ch;
+}
+
+.note a {
+  font-weight: 600;
+}
+
+/* ---- Colour inversion over the photo ---- */
+
+.hasPhoto .heading {
+  color: #fff;
+  text-shadow: 0 2px 24px rgba(10, 16, 30, 0.45);
+}
+
+.hasPhoto .lede {
+  color: #dfe3f0;
+}
+
+.hasPhoto .note {
+  color: #b8bfd4;
+}
+
+.hasPhoto .note a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hasPhoto :global(.eyebrow) {
+  color: var(--marigold);
+}
+
+.hasPhoto :global(.eyebrow)::before {
+  background: var(--marigold);
+}
+
+@media (max-width: 700px) {
+  /* Narrow screens crop the photo hard; even out the scrim so the text
+     doesn't sit over a random bright patch. */
+  .scrim {
+    background:
+      linear-gradient(
+        180deg,
+        rgba(18, 28, 48, 0.72) 0%,
+        rgba(18, 28, 48, 0.88) 55%,
+        rgba(18, 28, 48, 0.94) 100%
+      );
+  }
+}

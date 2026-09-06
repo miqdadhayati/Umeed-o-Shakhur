@@ -1,0 +1,365 @@
+/* Shared LMS chrome. Reuses the public site's tokens so the app doesn't feel
+   like a different product, but leans plainer: bigger tap targets, fewer
+   decorative flourishes, and no layout that depends on a wide screen. */
+
+.shell {
+  min-height: 70vh;
+  padding-block: clamp(2rem, 4vw, 3.5rem);
+}
+
+/* ---- Auth screens ---- */
+
+.authWrap {
+  display: flex;
+  justify-content: center;
+  padding-block: clamp(2rem, 6vw, 4.5rem);
+}
+
+.card {
+  width: 100%;
+  max-width: 30rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.5rem, 4vw, 2.25rem);
+  box-shadow: var(--shadow-sm);
+}
+
+.card h1 {
+  font-size: var(--step-2);
+  margin-bottom: 0.5rem;
+}
+
+.cardIntro {
+  color: var(--muted);
+  font-size: var(--step--1);
+  margin-bottom: 1.75rem;
+}
+
+.field {
+  display: block;
+  margin-bottom: 1.1rem;
+}
+
+.label {
+  display: block;
+  font-weight: 600;
+  font-size: var(--step--1);
+  margin-bottom: 0.4rem;
+}
+
+.hint {
+  display: block;
+  font-weight: 400;
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  font-family: inherit;
+  font-size: var(--step-0);
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+}
+
+.input:focus-visible {
+  border-color: var(--indigo);
+  outline: 3px solid rgba(40, 61, 107, 0.18);
+  outline-offset: 1px;
+}
+
+/* Codes are read aloud and typed once — make them unmistakable. */
+.codeInput {
+  font-family: var(--font-mono);
+  font-size: 1.35rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.submit {
+  width: 100%;
+  margin-top: 0.5rem;
+  padding: 0.85rem 1.5rem;
+  font-family: inherit;
+  font-size: var(--step-0);
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--marigold);
+  border: 2px solid var(--marigold);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background 0.18s ease, border-color 0.18s ease;
+}
+
+.submit:hover:not(:disabled) {
+  background: var(--marigold-600);
+  border-color: var(--marigold-600);
+}
+
+.submit:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+
+.alert {
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  font-size: var(--step--1);
+  margin-bottom: 1.25rem;
+  border: 1px solid;
+}
+
+.alertError {
+  background: #fdf0ee;
+  border-color: #e9c4bd;
+  color: #8c2f1b;
+}
+
+.alertInfo {
+  background: var(--indigo-100);
+  border-color: #c6cee6;
+  color: var(--indigo-700);
+}
+
+.alertSuccess {
+  background: rgba(31, 122, 109, 0.1);
+  border-color: rgba(31, 122, 109, 0.35);
+  color: #145247;
+}
+
+.switcher {
+  margin-top: 1.5rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--line);
+  font-size: var(--step--1);
+  color: var(--muted);
+  text-align: center;
+}
+
+.switcher a {
+  color: var(--indigo);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+/* ---- App chrome ---- */
+
+.appBar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  border-bottom: 1px solid var(--line);
+}
+
+.greeting {
+  font-size: var(--step-2);
+  margin: 0;
+}
+
+.roleChip {
+  display: inline-block;
+  margin-left: 0.6rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: 999px;
+  background: var(--indigo-100);
+  color: var(--indigo-700);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+.barActions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.linkBtn {
+  font-size: var(--step--1);
+  font-weight: 600;
+  color: var(--indigo);
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-family: inherit;
+}
+
+.block {
+  margin-bottom: 2.75rem;
+}
+
+.blockHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.blockTitle {
+  font-size: var(--step-1);
+  margin: 0;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.item {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--indigo);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+}
+
+.itemDue {
+  border-left-color: var(--marigold);
+}
+
+.itemTitle {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-0);
+  margin: 0 0 0.35rem;
+}
+
+.itemBody {
+  color: var(--muted);
+  font-size: var(--step--1);
+  margin: 0;
+  white-space: pre-wrap;
+}
+
+.itemMeta {
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--muted);
+  letter-spacing: 0.04em;
+}
+
+.itemLink {
+  display: inline-block;
+  margin-top: 0.6rem;
+  font-weight: 600;
+  color: var(--indigo);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  font-size: var(--step--1);
+}
+
+.empty {
+  color: var(--muted);
+  font-size: var(--step--1);
+  background: var(--mist);
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin: 0;
+}
+
+/* ---- Teacher console ---- */
+
+.panel {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: clamp(1.25rem, 3vw, 1.75rem);
+  margin-bottom: 1.5rem;
+}
+
+.panel h3 {
+  font-size: var(--step-1);
+  margin-bottom: 1rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.textarea {
+  width: 100%;
+  min-height: 6rem;
+  padding: 0.8rem 0.9rem;
+  font-family: inherit;
+  font-size: var(--step-0);
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+  resize: vertical;
+}
+
+.select {
+  width: 100%;
+  padding: 0.8rem 0.9rem;
+  font-family: inherit;
+  font-size: var(--step-0);
+  color: var(--ink);
+  background: var(--paper);
+  border: 1.5px solid var(--line);
+  border-radius: 10px;
+}
+
+.inlineSubmit {
+  width: auto;
+  padding-inline: 1.75rem;
+}
+
+.codeChip {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  letter-spacing: 0.22em;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 0.5rem 0.9rem;
+  border-radius: 8px;
+  user-select: all;
+}
+
+.classRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.classRow:last-child {
+  border-bottom: 0;
+}
+
+@media (max-width: 620px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+
+  .appBar {
+    align-items: flex-start;
+  }
+}
